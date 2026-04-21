@@ -1,0 +1,13 @@
+services:
+  db:
+    image: ankane/pgvector:latest
+    container_name: personal_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: personal_vault
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: always
